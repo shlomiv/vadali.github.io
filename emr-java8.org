@@ -1,0 +1,41 @@
+#+Title: Java 8 on Amazon EMR
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+
+* How about that?
+  We could get that to work on this
+
+  #+BEGIN_SRC sh
+    # Check java version
+    JAVA_VER=$(java -version 2>&1 | sed 's/java version "\(.*\)\.\(.*\)\..*"/\1\2/; 1q')
+
+    if [ "$JAVA_VER" -lt 18 ]
+    then
+
+        echo "Getting add-apt-repository"
+        wget --no-check-certificate --no-cookies "https://blog.anantshri.info/content/uploads/2010/09/add-apt-repository.sh.txt" -O add-apt-repository.sh
+
+        echo "Adding oracle java ppa"
+        sudo sh add-apt-repository.sh ppa:webupd8team/java
+
+        echo "updating"
+        sudo apt-get update
+
+        echo "Setting up installation..."
+        echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections
+
+        echo "Installing..."
+        sudo apt-get install -y oracle-java8-installer
+
+        echo "Setting JAVA_HOME to java 8"
+        echo 'export JAVA_HOME=/usr/lib/jvm/java-8-oracle' > /home/hadoop/conf/hadoop-user-env.sh
+    fi
+
+    # Check java version again
+    JAVA_VER=$(java -version 2>&1 | sed 's/java version "\(.*\)\.\(.*\)\..*"/\1\2/; 1q')
+
+    echo ""
+    echo "Java version is $JAVA_VER!"
+    echo "JAVA_HOME: $JAVA_HOME"
+    echo "JRE_HOME: $JRE_HOME"
+    echo "PATH: $PATH"
+  #+END_SRC
