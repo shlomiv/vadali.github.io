@@ -1,0 +1,12 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:t
+#+LAYOUT: post
+#+AUTHOR: vadali
+#+DATE: 2014-12-19 Fri 23:49
+#+TITLE: hello
+#+DESCRIPTION: some description
+#+CATEGORIES: category0, category1
+
+* Lets test this thing, shall we
+  Here is a very first paragraph

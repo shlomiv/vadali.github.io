@@ -1,0 +1,19 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:t
+#+LAYOUT: post
+#+AUTHOR: vadali
+#+DATE: 2015-08-05 Wed 20:11
+#+TITLE: Second one
+#+DESCRIPTION: Try to add another...
+#+TAGS: second, one
+#+CATEGORIES: clojure
+
+* Second one
+  Lets try to see of this is going to work now, wont we?
+  #+BEGIN_SRC clojure :exports code
+    (defn test [now]
+      (inc now))
+  #+END_SRC
+
+{% gist 8387126 %}

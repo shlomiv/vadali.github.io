@@ -1,0 +1,18 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:t
+#+LAYOUT: post
+#+AUTHOR: vadali
+#+DATE: 2015-08-05 Wed 20:06
+#+TITLE: First one
+#+DESCRIPTION: Lets see..
+#+TAGS: first,one
+#+CATEGORIES:
+
+* Automatically created one!
+  does it work?
+
+  #+BEGIN_SRC clojure
+    (defn test [now]
+      (inc now))
+  #+END_SRC
